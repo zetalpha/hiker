@@ -13,7 +13,6 @@ var dict = {
             downloadFile(webfile, localfile)
             if (fileExist(localfile)) {
                 if ($.require("zip").unzipFile(localfile, local)) {
-                    setItem("drpyPath", getPath(local + "libs_hiker/drpy2.js"));
                     toast("解压成功");
                     deleteFile(localfile);
                     return "hiker://empty"
