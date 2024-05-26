@@ -1,6 +1,8 @@
+var pfix = (typeof prefix) == "undefined" ? "" : prefix;
+
 var paths = {
     root: "hiker://files/cache/drpy/",
-    webroot: "https://raw.githubusercontent.com/zetalpha/hiker/main/drpy/",
+    webroot: pfix + "https://raw.githubusercontent.com/zetalpha/hiker/main/drpy/",
 }
 
 var dict = {
@@ -23,8 +25,8 @@ var dict = {
             }
             return "hiker://empty";
         }, paths.root, paths.webroot),
-        localPath: 'hiker://files/cache/drpy/libsVer.js',
-        webPath: 'https://raw.githubusercontent.com/zetalpha/hiker/main/drpy/libsVer.js',
+        localPath: "hiker://files/cache/drpy/libsVer.js",
+        webPath: pfix + "https://raw.githubusercontent.com/zetalpha/hiker/main/drpy/libsVer.js",
     }
 }
 
@@ -33,7 +35,7 @@ function checkInFiles(files) {
         var key = f.replace(/\..+/gm, '');
         if (!fileExist(dict[key].localPath)) {
             downloadFile(dict[key].webPath, dict[key].localPath)
-            if(dict[key].hasOwnProperty("func")){
+            if (dict[key].hasOwnProperty("func")) {
                 eval(dict[key].func)
             }
             toast('导入完成')
@@ -68,7 +70,7 @@ function Updata(keys, show) {
                     content: '更新内容:' + dict[key].toast,
                     confirm: $.toString((dict, key) => {
                         downloadFile(dict[key].webPath, dict[key].localPath)
-                        if(dict[key].hasOwnProperty("func")){
+                        if (dict[key].hasOwnProperty("func")) {
                             eval(dict[key].func)
                         }
                         log("更新完成");
@@ -82,7 +84,7 @@ function Updata(keys, show) {
                 })
             } else {
                 downloadFile(dict[key].webPath, dict[key].localPath)
-                if(dict[key].hasOwnProperty("func")){
+                if (dict[key].hasOwnProperty("func")) {
                     eval(dict[key].func)
                 }
                 log("更新完成");
