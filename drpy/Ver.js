@@ -3,6 +3,6 @@ var dict = {
         ver: "1.0.0",
         toast: '',
         localPath: 'hiker://files/cache/drpy/libsVer.js',
-        webPath: 'https://gitee.com/zetalpha/hikerview/raw/master/global/html/SlideX.html',
+        webPath: 'https://raw.githubusercontent.com/zetalpha/hiker/main/drpy/libsVer.js',
     }
 }
