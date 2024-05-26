@@ -10,7 +10,7 @@ var dict = {
 function checkInFiles(files) {
     files.forEach((f) => {
         var key = f.replace(/\..+/gm, '');
-        log(key)
+        log(key);
         if (!fileExist(dict[key].localPath)) {
             downloadFile(dict[key].webPath, dict[key].localPath)
             toast('导入完成')
